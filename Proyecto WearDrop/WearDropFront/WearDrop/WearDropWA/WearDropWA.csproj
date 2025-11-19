@@ -1,0 +1,1558 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{72EB2332-4642-4DD0-A02A-4A984E7F6A16}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WearDropWA</RootNamespace>
+    <AssemblyName>WearDropWA</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Almacen\Lote\ModificarLote.aspx" />
+    <Content Include="Almacen\Lote\RegistrarLote.aspx" />
+    <Content Include="Almacen\MostrarAlmacen.aspx" />
+    <Content Include="Almacen\MovimientoXLote\ModificarMovimientoXLote.aspx" />
+    <Content Include="Almacen\MovimientoXLote\RegistrarMovimientoXLote.aspx" />
+    <Content Include="Almacen\Movimiento\ModificarMovimiento.aspx" />
+    <Content Include="Almacen\Movimiento\RegistrarMovimiento.aspx" />
+    <Content Include="AnnadirLineaDeLaCompra.aspx" />
+    <Content Include="AnnadirProductoVenta.aspx" />
+    <None Include="Connected Services\BlusaWS\BlusaWS.wsdl" />
+    <None Include="Connected Services\BlusaWS\BlusaWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Connected Services\BlusaWS\WearDropWA.BlusaWS.blusa.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\BlusaWS\WearDropWA.BlusaWS.eliminarBlusaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\BlusaWS\WearDropWA.BlusaWS.filtrarBlusasResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\BlusaWS\WearDropWA.BlusaWS.insertarBlusaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\BlusaWS\WearDropWA.BlusaWS.listarBlusasResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\BlusaWS\WearDropWA.BlusaWS.modificarBlusaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\BlusaWS\WearDropWA.BlusaWS.obtenerBlusaPorIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\BoletaService\BoletaWS.wsdl" />
+    <None Include="Connected Services\BoletaService\BoletaWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\BlusaWS\configuration91.svcinfo" />
+    <None Include="Connected Services\BlusaWS\configuration.svcinfo" />
+    <None Include="Connected Services\BlusaWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Connected Services\BoletaService\WearDropWA.BoletaService.boleta.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\BoletaService\WearDropWA.BoletaService.eliminarBoletaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\BoletaService\WearDropWA.BoletaService.insertarBoletaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\BoletaService\WearDropWA.BoletaService.listarTodasBoletasResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\BoletaService\WearDropWA.BoletaService.modificarBoletaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\BoletaService\WearDropWA.BoletaService.obtenerBoletaPorIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\CargoWS\CargoWS.wsdl" />
+    <None Include="Connected Services\CargoWS\CargoWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\BoletaService\configuration91.svcinfo" />
+    <None Include="Connected Services\BoletaService\configuration.svcinfo" />
+    <None Include="Connected Services\BoletaService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\CasacaWS\CasacaWS.wsdl" />
+    <None Include="Connected Services\CasacaWS\CasacaWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Connected Services\CasacaWS\WearDropWA.CasacaWS.casaca.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CasacaWS\WearDropWA.CasacaWS.eliminarCasacaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CasacaWS\WearDropWA.CasacaWS.filtrarCasacasResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CasacaWS\WearDropWA.CasacaWS.insertarCasacaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CasacaWS\WearDropWA.CasacaWS.listarCasacasResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CasacaWS\WearDropWA.CasacaWS.modificarCasacaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CasacaWS\WearDropWA.CasacaWS.obtenerCasacaPorIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\ClienteWS\ClienteWS.wsdl" />
+    <None Include="Connected Services\ClienteWS\ClienteWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CuentaUsuarioWS\CuentaUsuarioWS.wsdl" />
+    <None Include="Connected Services\CuentaUsuarioWS\CuentaUsuarioWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Connected Services\CuentaUsuarioWS\WearDropWA.CuentaUsuarioWS.cuentaUsuario.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CuentaUsuarioWS\WearDropWA.CuentaUsuarioWS.eliminarCuentaUsuarioResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CuentaUsuarioWS\WearDropWA.CuentaUsuarioWS.insertarCuentaUsuarioResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CuentaUsuarioWS\WearDropWA.CuentaUsuarioWS.listarCuentasUsuarioResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CuentaUsuarioWS\WearDropWA.CuentaUsuarioWS.modificarCuentaUsuarioResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CuentaUsuarioWS\WearDropWA.CuentaUsuarioWS.obtenerCuentaUsuarioPorIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CuentaUsuarioWS\WearDropWA.CuentaUsuarioWS.verificarCuentaUsuarioResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\DescuentoLiquidacionWS\DescuentoLiquidacionWS.wsdl" />
+    <None Include="Connected Services\DescuentoLiquidacionWS\DescuentoLiquidacionWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\DescuentoMontoWS\DescuentoMontoWS.wsdl" />
+    <None Include="Connected Services\DescuentoMontoWS\DescuentoMontoWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\DescuentoPorcentajeWS\DescuentoPorcentajeWS.wsdl" />
+    <None Include="Connected Services\DescuentoPorcentajeWS\DescuentoPorcentajeWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\EmpleadoWS\EmpleadoWS.wsdl" />
+    <None Include="Connected Services\EmpleadoWS\EmpleadoWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\FacturaService\FacturaWS.wsdl" />
+    <None Include="Connected Services\FacturaService\FacturaWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CasacaWS\configuration91.svcinfo" />
+    <None Include="Connected Services\CasacaWS\configuration.svcinfo" />
+    <None Include="Connected Services\CasacaWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Connected Services\FacturaService\WearDropWA.FacturaService.eliminarFacturaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\FacturaService\WearDropWA.FacturaService.factura.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\FacturaService\WearDropWA.FacturaService.insertarFacturaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\FacturaService\WearDropWA.FacturaService.listarTodasFacturasResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\FacturaService\WearDropWA.FacturaService.modificarFacturaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\FacturaService\WearDropWA.FacturaService.obtenerFacturaPorIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\ClienteWS\configuration91.svcinfo" />
+    <None Include="Connected Services\ClienteWS\configuration.svcinfo" />
+    <None Include="Connected Services\ClienteWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\FacturaService\configuration91.svcinfo" />
+    <None Include="Connected Services\FacturaService\configuration.svcinfo" />
+    <None Include="Connected Services\FacturaService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\FaldaWS\FaldaWS.wsdl" />
+    <None Include="Connected Services\FaldaWS\FaldaWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Connected Services\FaldaWS\WearDropWA.FaldaWS.eliminarFaldaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\FaldaWS\WearDropWA.FaldaWS.falda.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\FaldaWS\WearDropWA.FaldaWS.filtrarFaldasResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\FaldaWS\WearDropWA.FaldaWS.insertarFaldaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\FaldaWS\WearDropWA.FaldaWS.listarFaldasResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\FaldaWS\WearDropWA.FaldaWS.modificarFaldaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\FaldaWS\WearDropWA.FaldaWS.obtenerFaldaPorIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\GorroWS\GorroWS.wsdl" />
+    <None Include="Connected Services\GorroWS\GorroWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Connected Services\GorroWS\WearDropWA.GorroWS.eliminarGorroResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\GorroWS\WearDropWA.GorroWS.filtrarGorrosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\GorroWS\WearDropWA.GorroWS.gorro.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\GorroWS\WearDropWA.GorroWS.insertarGorroResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\GorroWS\WearDropWA.GorroWS.listarGorrosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\GorroWS\WearDropWA.GorroWS.modificarGorroResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\GorroWS\WearDropWA.GorroWS.obtenerGorroPorIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\NotaDeCreditoService\NotaDeCreditoWS.wsdl" />
+    <None Include="Connected Services\NotaDeCreditoService\NotaDeCreditoWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\FaldaWS\configuration91.svcinfo" />
+    <None Include="Connected Services\FaldaWS\configuration.svcinfo" />
+    <None Include="Connected Services\FaldaWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\GorroWS\configuration91.svcinfo" />
+    <None Include="Connected Services\GorroWS\configuration.svcinfo" />
+    <None Include="Connected Services\GorroWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Connected Services\NotaDeCreditoService\WearDropWA.NotaDeCreditoService.eliminarNotaCreditoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\NotaDeCreditoService\WearDropWA.NotaDeCreditoService.insertarNotaCreditoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\NotaDeCreditoService\WearDropWA.NotaDeCreditoService.listarTodasNotasCreditoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\NotaDeCreditoService\WearDropWA.NotaDeCreditoService.modificarNotaCreditoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\NotaDeCreditoService\WearDropWA.NotaDeCreditoService.notaDeCredito.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\NotaDeCreditoService\WearDropWA.NotaDeCreditoService.obtenerNotaCreditoPorIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\NotaDeDebitoService\NotaDeDebitoWS.wsdl" />
+    <None Include="Connected Services\NotaDeDebitoService\NotaDeDebitoWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Connected Services\NotaDeDebitoService\WearDropWA.NotaDeDebitoService.eliminarNotaDebitoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\NotaDeDebitoService\WearDropWA.NotaDeDebitoService.insertarNotaDebitoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\NotaDeDebitoService\WearDropWA.NotaDeDebitoService.listarTodasNotasDebitoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\NotaDeDebitoService\WearDropWA.NotaDeDebitoService.modificarNotaDebitoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\NotaDeDebitoService\WearDropWA.NotaDeDebitoService.notaDeDebito.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\NotaDeDebitoService\WearDropWA.NotaDeDebitoService.obtenerNotaDebitoPorIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\PackageAlmacen\AlmacenWS.wsdl" />
+    <None Include="Connected Services\PackageAlmacen\AlmacenWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\PackageAlmacen\LoteWS.wsdl" />
+    <None Include="Connected Services\PackageAlmacen\LoteWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\PackageAlmacen\MovimientoAlmacenWS.wsdl" />
+    <None Include="Connected Services\PackageAlmacen\MovimientoAlmacenWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\PackageAlmacen\MovimientoAlmacenXLoteWS.wsdl" />
+    <None Include="Connected Services\PackageAlmacen\MovimientoAlmacenXLoteWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\PackageAlmacen\referenciasWearDrop.disco" />
+    <None Include="Connected Services\PackageAlmacen\configuration91.svcinfo" />
+    <None Include="Connected Services\PackageAlmacen\configuration.svcinfo" />
+    <None Include="Connected Services\PackageAlmacen\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\NotaDeCreditoService\configuration91.svcinfo" />
+    <None Include="Connected Services\NotaDeCreditoService\configuration.svcinfo" />
+    <None Include="Connected Services\NotaDeCreditoService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\NotaDeDebitoService\configuration91.svcinfo" />
+    <None Include="Connected Services\NotaDeDebitoService\configuration.svcinfo" />
+    <None Include="Connected Services\NotaDeDebitoService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\PantalonWS\PantalonWS.wsdl" />
+    <None Include="Connected Services\PantalonWS\PantalonWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Connected Services\PantalonWS\WearDropWA.PantalonWS.eliminarPantalonResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PantalonWS\WearDropWA.PantalonWS.filtrarPantalonesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PantalonWS\WearDropWA.PantalonWS.insertarPantalonResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PantalonWS\WearDropWA.PantalonWS.listarPantalonesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PantalonWS\WearDropWA.PantalonWS.modificarPantalonResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PantalonWS\WearDropWA.PantalonWS.obtenerPantalonPorIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PantalonWS\WearDropWA.PantalonWS.pantalon.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\PoloWS\PoloWS.wsdl" />
+    <None Include="Connected Services\PoloWS\PoloWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Connected Services\PoloWS\WearDropWA.PoloWS.eliminarPoloResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PoloWS\WearDropWA.PoloWS.filtrarPolosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PoloWS\WearDropWA.PoloWS.insertarPoloResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PoloWS\WearDropWA.PoloWS.listarPolosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PoloWS\WearDropWA.PoloWS.modificarPoloResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PoloWS\WearDropWA.PoloWS.obtenerPoloPorIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PoloWS\WearDropWA.PoloWS.polo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\PromocionComboWS\PromocionComboWS.wsdl" />
+    <None Include="Connected Services\PromocionComboWS\PromocionComboWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\PantalonWS\configuration91.svcinfo" />
+    <None Include="Connected Services\PantalonWS\configuration.svcinfo" />
+    <None Include="Connected Services\PantalonWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\PoloWS\configuration91.svcinfo" />
+    <None Include="Connected Services\PoloWS\configuration.svcinfo" />
+    <None Include="Connected Services\PoloWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Connected Services\PromocionComboWS\WearDropWA.PromocionComboWS.eliminarPromocionComboResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PromocionComboWS\WearDropWA.PromocionComboWS.helloResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PromocionComboWS\WearDropWA.PromocionComboWS.insertarPromocionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PromocionComboWS\WearDropWA.PromocionComboWS.insertar_prendapromocionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PromocionComboWS\WearDropWA.PromocionComboWS.modificarPromocionComboResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PromocionComboWS\WearDropWA.PromocionComboWS.mostrar_promocionescomboResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PromocionComboWS\WearDropWA.PromocionComboWS.obtenerPorIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PromocionComboWS\WearDropWA.PromocionComboWS.promocionCombo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\PromocionComboWS\WearDropWA.PromocionComboWS.promocionConjunto.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\PromocionConjunto\PromocionConjuntoWS.wsdl" />
+    <None Include="Connected Services\PromocionConjunto\PromocionConjuntoWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProveedorWS\configuration91.svcinfo" />
+    <None Include="Connected Services\ProveedorWS\configuration.svcinfo" />
+    <None Include="Connected Services\ProveedorWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\DescuentoLiquidacionWS\configuration91.svcinfo" />
+    <None Include="Connected Services\DescuentoLiquidacionWS\configuration.svcinfo" />
+    <None Include="Connected Services\DescuentoLiquidacionWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\DescuentoMontoWS\configuration91.svcinfo" />
+    <None Include="Connected Services\DescuentoMontoWS\configuration.svcinfo" />
+    <None Include="Connected Services\DescuentoMontoWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\DescuentoPorcentajeWS\configuration91.svcinfo" />
+    <None Include="Connected Services\DescuentoPorcentajeWS\configuration.svcinfo" />
+    <None Include="Connected Services\DescuentoPorcentajeWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\CargoWS\configuration91.svcinfo" />
+    <None Include="Connected Services\CargoWS\configuration.svcinfo" />
+    <None Include="Connected Services\CargoWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\EmpleadoWS\configuration91.svcinfo" />
+    <None Include="Connected Services\EmpleadoWS\configuration.svcinfo" />
+    <None Include="Connected Services\EmpleadoWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\CuentaUsuarioWS\configuration91.svcinfo" />
+    <None Include="Connected Services\CuentaUsuarioWS\configuration.svcinfo" />
+    <None Include="Connected Services\CuentaUsuarioWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\TipoCuentaWS\configuration91.svcinfo" />
+    <None Include="Connected Services\TipoCuentaWS\configuration.svcinfo" />
+    <None Include="Connected Services\TipoCuentaWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\VentaWS\VentaWS.wsdl" />
+    <None Include="Connected Services\VentaWS\VentaWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\PromocionComboWS\configuration91.svcinfo" />
+    <None Include="Connected Services\PromocionComboWS\configuration.svcinfo" />
+    <None Include="Connected Services\PromocionComboWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\PromocionConjunto\configuration91.svcinfo" />
+    <None Include="Connected Services\PromocionConjunto\configuration.svcinfo" />
+    <None Include="Connected Services\PromocionConjunto\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\VentaWS\configuration91.svcinfo" />
+    <None Include="Connected Services\VentaWS\configuration.svcinfo" />
+    <None Include="Connected Services\VentaWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\VestidoWS\VestidoWS.wsdl" />
+    <None Include="Connected Services\VestidoWS\VestidoWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Connected Services\VestidoWS\WearDropWA.VestidoWS.eliminarVestidoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\VestidoWS\WearDropWA.VestidoWS.filtrarVestidosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\VestidoWS\WearDropWA.VestidoWS.insertarVestidoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\VestidoWS\WearDropWA.VestidoWS.listarVestidosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\VestidoWS\WearDropWA.VestidoWS.modificarVestidoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\VestidoWS\WearDropWA.VestidoWS.obtenerVestidoPorIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\VestidoWS\WearDropWA.VestidoWS.vestido.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\VigenciaWS\configuration91.svcinfo" />
+    <None Include="Connected Services\VigenciaWS\configuration.svcinfo" />
+    <None Include="Connected Services\VigenciaWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\VestidoWS\configuration91.svcinfo" />
+    <None Include="Connected Services\VestidoWS\configuration.svcinfo" />
+    <None Include="Connected Services\VestidoWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-grid.rtl.css" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Content\bootstrap-utilities.css" />
+    <Content Include="Content\bootstrap-utilities.min.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap.rtl.css" />
+    <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\site.css" />
+    <Content Include="Fonts\css\all.css" />
+    <Content Include="Fonts\css\all.min.css" />
+    <Content Include="Fonts\css\brands.css" />
+    <Content Include="Fonts\css\brands.min.css" />
+    <Content Include="Fonts\css\duotone.css" />
+    <Content Include="Fonts\css\duotone.min.css" />
+    <Content Include="Fonts\css\fontawesome.css" />
+    <Content Include="Fonts\css\fontawesome.min.css" />
+    <Content Include="Fonts\css\light.css" />
+    <Content Include="Fonts\css\light.min.css" />
+    <Content Include="Fonts\css\regular.css" />
+    <Content Include="Fonts\css\regular.min.css" />
+    <Content Include="Fonts\css\solid.css" />
+    <Content Include="Fonts\css\solid.min.css" />
+    <Content Include="Fonts\css\svg-with-js.css" />
+    <Content Include="Fonts\css\svg-with-js.min.css" />
+    <Content Include="Fonts\css\thin.css" />
+    <Content Include="Fonts\css\thin.min.css" />
+    <Content Include="Fonts\css\v4-font-face.css" />
+    <Content Include="Fonts\css\v4-font-face.min.css" />
+    <Content Include="Fonts\css\v4-shims.css" />
+    <Content Include="Fonts\css\v4-shims.min.css" />
+    <Content Include="Fonts\css\v5-font-face.css" />
+    <Content Include="Fonts\css\v5-font-face.min.css" />
+    <Content Include="GestionarComprobantes.aspx" />
+    <Content Include="GestionarDescuentos.aspx" />
+    <Content Include="GestionarOrdenesDeCompra.aspx" />
+    <Content Include="GestionarPersonas.aspx" />
+    <Content Include="GestionarPrendas.aspx" />
+    <Content Include="GestionarPromociones.aspx" />
+    <Content Include="GestionarProveedores.aspx" />
+    <Content Include="GestionarVentas.aspx" />
+    <Content Include="Home.aspx" />
+    <Content Include="Images\logo.png" />
+    <Content Include="index.html" />
+    <Content Include="Almacen\ListarAlmacenes.aspx" />
+    <Content Include="Almacen\ModificarAlmacen.aspx" />
+    <Content Include="Almacen\RegistrarAlmacen.aspx" />
+    <Content Include="InicioSesion.aspx" />
+    <Content Include="ListarBoletas.aspx" />
+    <Content Include="ListarClientes.aspx" />
+    <Content Include="ListarClientexCompras.aspx" />
+    <Content Include="ListarCombo.aspx" />
+    <Content Include="ListarConjunto.aspx" />
+    <Content Include="ListarCuentas.aspx" />
+    <Content Include="ListarEmpleados.aspx" />
+    <Content Include="ListarEmpleadoXVentas.aspx" />
+    <Content Include="ListarFacturas.aspx" />
+    <Content Include="ListarLiquidacion.aspx" />
+    <Content Include="ListarMonto.aspx" />
+    <Content Include="ListarNotasDeCredito.aspx" />
+    <Content Include="ListarNotasDeDebito.aspx" />
+    <Content Include="ListarPorcentaje.aspx" />
+    <Content Include="ListarPrendas.aspx" />
+    <Content Include="ModificarBoleta.aspx" />
+    <Content Include="ModificarCombo.aspx" />
+    <Content Include="ModificarComprobantes.aspx" />
+    <Content Include="ModificarConjunto.aspx" />
+    <Content Include="ModificarFactura.aspx" />
+    <Content Include="ModificarLiquidacion.aspx" />
+    <Content Include="ModificarMonto.aspx" />
+    <Content Include="ModificarNotaDeCredito.aspx" />
+    <Content Include="ModificarNotaDeDebito.aspx" />
+    <Content Include="ModificarPorcentaje.aspx" />
+    <Content Include="RegistarVentas.aspx" />
+    <Content Include="RegistrarBoleta.aspx" />
+    <Content Include="RegistrarClientes.aspx" />
+    <Content Include="RegistrarCombo.aspx" />
+    <Content Include="RegistrarComprobantes.aspx" />
+    <Content Include="RegistrarCondicion.aspx" />
+    <Content Include="RegistrarCondicionesdePago.aspx" />
+    <Content Include="RegistrarConjunto.aspx" />
+    <Content Include="RegistrarCuentas.aspx" />
+    <Content Include="RegistrarEmpleado.aspx" />
+    <Content Include="RegistrarFactura.aspx" />
+    <Content Include="RegistrarLiquidacion.aspx" />
+    <Content Include="RegistrarMonto.aspx" />
+    <Content Include="RegistrarNotaDeCredito.aspx" />
+    <Content Include="RegistrarNotaDeDebito.aspx" />
+    <Content Include="RegistrarOrdenCompra.aspx" />
+    <Content Include="RegistrarPorcentaje.aspx" />
+    <Content Include="RegistrarPrenda.aspx" />
+    <Content Include="RegistrarProveedor.aspx" />
+    <Content Include="RegistrarVentaBoleta.aspx" />
+    <Content Include="RegistrarVentaFactura.aspx" />
+    <Content Include="RegistroVentaResumenVenta.aspx" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.esm.js" />
+    <Content Include="Scripts\bootstrap.esm.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Fonts\webfonts\fa-brands-400.ttf" />
+    <Content Include="Fonts\webfonts\fa-brands-400.woff" />
+    <Content Include="Fonts\webfonts\fa-brands-400.woff2" />
+    <Content Include="Fonts\webfonts\fa-duotone-900.ttf" />
+    <Content Include="Fonts\webfonts\fa-duotone-900.woff" />
+    <Content Include="Fonts\webfonts\fa-duotone-900.woff2" />
+    <Content Include="Fonts\webfonts\fa-light-300.ttf" />
+    <Content Include="Fonts\webfonts\fa-light-300.woff" />
+    <Content Include="Fonts\webfonts\fa-light-300.woff2" />
+    <Content Include="Fonts\webfonts\fa-regular-400.ttf" />
+    <Content Include="Fonts\webfonts\fa-regular-400.woff" />
+    <Content Include="Fonts\webfonts\fa-regular-400.woff2" />
+    <Content Include="Fonts\webfonts\fa-solid-900.ttf" />
+    <Content Include="Fonts\webfonts\fa-solid-900.woff" />
+    <Content Include="Fonts\webfonts\fa-solid-900.woff2" />
+    <Content Include="Fonts\webfonts\fa-thin-100.ttf" />
+    <Content Include="Fonts\webfonts\fa-thin-100.woff" />
+    <Content Include="Fonts\webfonts\fa-thin-100.woff2" />
+    <Content Include="Fonts\webfonts\fa-v4compatibility.ttf" />
+    <Content Include="Fonts\webfonts\fa-v4compatibility.woff2" />
+    <None Include="Connected Services\ProveedorWS\ProveedorWS.wsdl" />
+    <None Include="Connected Services\ProveedorWS\ProveedorWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TipoCuentaWS\TipoCuentaWS.wsdl" />
+    <None Include="Connected Services\TipoCuentaWS\TipoCuentaWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\VigenciaWS\VigenciaWS.wsdl" />
+    <None Include="Connected Services\VigenciaWS\VigenciaWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Scripts\jquery-3.7.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.7.1.js" />
+    <Content Include="Scripts\jquery-3.7.1.min.js" />
+    <Content Include="Scripts\jquery-3.7.1.slim.js" />
+    <Content Include="Scripts\jquery-3.7.1.slim.min.js" />
+    <Content Include="Scripts\Personal\Empleado.js" />
+    <Content Include="SeleccionarPrendaAnnadirProducto.aspx" />
+    <Content Include="SeleccionarPrendaCombo.aspx" />
+    <Content Include="SeleccionarPrendaConjunto.aspx" />
+    <Content Include="SeleccionarPrendaLiquidacion.aspx" />
+    <Content Include="SeleccionarPrendaMonto.aspx" />
+    <Content Include="SeleccionarPrendaPorcentaje.aspx" />
+    <Content Include="VerCliente.aspx" />
+    <Content Include="VerEmpleado.aspx" />
+    <Content Include="VerItemsVenta.aspx" />
+    <Content Include="VerPrendaSeleccionadaparaVenta.aspx" />
+    <Content Include="VerVentaResumen.aspx" />
+    <Content Include="VisualizarPrenda.aspx" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Almacen\Lote\ModificarLote.aspx.cs">
+      <DependentUpon>ModificarLote.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Almacen\Lote\ModificarLote.aspx.designer.cs">
+      <DependentUpon>ModificarLote.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Almacen\Lote\RegistrarLote.aspx.cs">
+      <DependentUpon>RegistrarLote.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Almacen\Lote\RegistrarLote.aspx.designer.cs">
+      <DependentUpon>RegistrarLote.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Almacen\MostrarAlmacen.aspx.cs">
+      <DependentUpon>MostrarAlmacen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Almacen\MostrarAlmacen.aspx.designer.cs">
+      <DependentUpon>MostrarAlmacen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Almacen\MovimientoXLote\ModificarMovimientoXLote.aspx.cs">
+      <DependentUpon>ModificarMovimientoXLote.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Almacen\MovimientoXLote\ModificarMovimientoXLote.aspx.designer.cs">
+      <DependentUpon>ModificarMovimientoXLote.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Almacen\MovimientoXLote\RegistrarMovimientoXLote.aspx.cs">
+      <DependentUpon>RegistrarMovimientoXLote.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Almacen\MovimientoXLote\RegistrarMovimientoXLote.aspx.designer.cs">
+      <DependentUpon>RegistrarMovimientoXLote.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Almacen\Movimiento\ModificarMovimiento.aspx.cs">
+      <DependentUpon>ModificarMovimiento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Almacen\Movimiento\ModificarMovimiento.aspx.designer.cs">
+      <DependentUpon>ModificarMovimiento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Almacen\Movimiento\RegistrarMovimiento.aspx.cs">
+      <DependentUpon>RegistrarMovimiento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Almacen\Movimiento\RegistrarMovimiento.aspx.designer.cs">
+      <DependentUpon>RegistrarMovimiento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AnnadirLineaDeLaCompra.aspx.cs">
+      <DependentUpon>AnnadirLineaDeLaCompra.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AnnadirLineaDeLaCompra.aspx.designer.cs">
+      <DependentUpon>AnnadirLineaDeLaCompra.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AnnadirProductoVenta.aspx.cs">
+      <DependentUpon>AnnadirProductoVenta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AnnadirProductoVenta.aspx.designer.cs">
+      <DependentUpon>AnnadirProductoVenta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\BlusaWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\BoletaService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\CargoWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\CasacaWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\ClienteWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\CuentaUsuarioWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\DescuentoLiquidacionWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\DescuentoMontoWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\DescuentoPorcentajeWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\EmpleadoWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\FacturaService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\FaldaWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\GorroWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\NotaDeCreditoService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\NotaDeDebitoService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\PackageAlmacen\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\PantalonWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\PoloWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\PromocionComboWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\PromocionConjunto\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\ProveedorWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\TipoCuentaWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\VentaWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\VestidoWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\VigenciaWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="GestionarComprobantes.aspx.cs">
+      <DependentUpon>GestionarComprobantes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionarComprobantes.aspx.designer.cs">
+      <DependentUpon>GestionarComprobantes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GestionarDescuentos.aspx.cs">
+      <DependentUpon>GestionarDescuentos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionarDescuentos.aspx.designer.cs">
+      <DependentUpon>GestionarDescuentos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GestionarOrdenesDeCompra.aspx.cs">
+      <DependentUpon>GestionarOrdenesDeCompra.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionarOrdenesDeCompra.aspx.designer.cs">
+      <DependentUpon>GestionarOrdenesDeCompra.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GestionarPersonas.aspx.cs">
+      <DependentUpon>GestionarPersonas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionarPersonas.aspx.designer.cs">
+      <DependentUpon>GestionarPersonas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GestionarPrendas.aspx.cs">
+      <DependentUpon>GestionarPrendas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionarPrendas.aspx.designer.cs">
+      <DependentUpon>GestionarPrendas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GestionarPromociones.aspx.cs">
+      <DependentUpon>GestionarPromociones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionarPromociones.aspx.designer.cs">
+      <DependentUpon>GestionarPromociones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GestionarProveedores.aspx.cs">
+      <DependentUpon>GestionarProveedores.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionarProveedores.aspx.designer.cs">
+      <DependentUpon>GestionarProveedores.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GestionarVentas.aspx.cs">
+      <DependentUpon>GestionarVentas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionarVentas.aspx.designer.cs">
+      <DependentUpon>GestionarVentas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Almacen\ListarAlmacenes.aspx.cs">
+      <DependentUpon>ListarAlmacenes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Almacen\ListarAlmacenes.aspx.designer.cs">
+      <DependentUpon>ListarAlmacenes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Almacen\ModificarAlmacen.aspx.cs">
+      <DependentUpon>ModificarAlmacen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Almacen\ModificarAlmacen.aspx.designer.cs">
+      <DependentUpon>ModificarAlmacen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InicioSesion.aspx.cs">
+      <DependentUpon>InicioSesion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InicioSesion.aspx.designer.cs">
+      <DependentUpon>InicioSesion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ListarBoletas.aspx.cs">
+      <DependentUpon>ListarBoletas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListarBoletas.aspx.designer.cs">
+      <DependentUpon>ListarBoletas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ListarClientes.aspx.cs">
+      <DependentUpon>ListarClientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListarClientes.aspx.designer.cs">
+      <DependentUpon>ListarClientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ListarClientexCompras.aspx.cs">
+      <DependentUpon>ListarClientexCompras.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListarClientexCompras.aspx.designer.cs">
+      <DependentUpon>ListarClientexCompras.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ListarCombo.aspx.cs">
+      <DependentUpon>ListarCombo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListarCombo.aspx.designer.cs">
+      <DependentUpon>ListarCombo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ListarConjunto.aspx.cs">
+      <DependentUpon>ListarConjunto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListarConjunto.aspx.designer.cs">
+      <DependentUpon>ListarConjunto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ListarCuentas.aspx.cs">
+      <DependentUpon>ListarCuentas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListarCuentas.aspx.designer.cs">
+      <DependentUpon>ListarCuentas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ListarEmpleados.aspx.cs">
+      <DependentUpon>ListarEmpleados.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListarEmpleados.aspx.designer.cs">
+      <DependentUpon>ListarEmpleados.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ListarEmpleadoXVentas.aspx.cs">
+      <DependentUpon>ListarEmpleadoXVentas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListarEmpleadoXVentas.aspx.designer.cs">
+      <DependentUpon>ListarEmpleadoXVentas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ListarFacturas.aspx.cs">
+      <DependentUpon>ListarFacturas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListarFacturas.aspx.designer.cs">
+      <DependentUpon>ListarFacturas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ListarLiquidacion.aspx.cs">
+      <DependentUpon>ListarLiquidacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListarLiquidacion.aspx.designer.cs">
+      <DependentUpon>ListarLiquidacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ListarMonto.aspx.cs">
+      <DependentUpon>ListarMonto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListarMonto.aspx.designer.cs">
+      <DependentUpon>ListarMonto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ListarNotasDeCredito.aspx.cs">
+      <DependentUpon>ListarNotasDeCredito.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListarNotasDeCredito.aspx.designer.cs">
+      <DependentUpon>ListarNotasDeCredito.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ListarNotasDeDebito.aspx.cs">
+      <DependentUpon>ListarNotasDeDebito.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListarNotasDeDebito.aspx.designer.cs">
+      <DependentUpon>ListarNotasDeDebito.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ListarPorcentaje.aspx.cs">
+      <DependentUpon>ListarPorcentaje.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListarPorcentaje.aspx.designer.cs">
+      <DependentUpon>ListarPorcentaje.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ListarPrendas.aspx.cs">
+      <DependentUpon>ListarPrendas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListarPrendas.aspx.designer.cs">
+      <DependentUpon>ListarPrendas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModificarBoleta.aspx.cs">
+      <DependentUpon>ModificarBoleta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModificarBoleta.aspx.designer.cs">
+      <DependentUpon>ModificarBoleta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModificarCombo.aspx.cs">
+      <DependentUpon>ModificarCombo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModificarCombo.aspx.designer.cs">
+      <DependentUpon>ModificarCombo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModificarComprobantes.aspx.cs">
+      <DependentUpon>ModificarComprobantes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModificarComprobantes.aspx.designer.cs">
+      <DependentUpon>ModificarComprobantes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModificarConjunto.aspx.cs">
+      <DependentUpon>ModificarConjunto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModificarConjunto.aspx.designer.cs">
+      <DependentUpon>ModificarConjunto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModificarFactura.aspx.cs">
+      <DependentUpon>ModificarFactura.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModificarFactura.aspx.designer.cs">
+      <DependentUpon>ModificarFactura.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModificarLiquidacion.aspx.cs">
+      <DependentUpon>ModificarLiquidacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModificarLiquidacion.aspx.designer.cs">
+      <DependentUpon>ModificarLiquidacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModificarMonto.aspx.cs">
+      <DependentUpon>ModificarMonto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModificarMonto.aspx.designer.cs">
+      <DependentUpon>ModificarMonto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModificarNotaDeCredito.aspx.cs">
+      <DependentUpon>ModificarNotaDeCredito.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModificarNotaDeCredito.aspx.designer.cs">
+      <DependentUpon>ModificarNotaDeCredito.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModificarNotaDeDebito.aspx.cs">
+      <DependentUpon>ModificarNotaDeDebito.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModificarNotaDeDebito.aspx.designer.cs">
+      <DependentUpon>ModificarNotaDeDebito.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModificarPorcentaje.aspx.cs">
+      <DependentUpon>ModificarPorcentaje.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModificarPorcentaje.aspx.designer.cs">
+      <DependentUpon>ModificarPorcentaje.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Almacen\RegistrarAlmacen.aspx.cs">
+      <DependentUpon>RegistrarAlmacen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Almacen\RegistrarAlmacen.aspx.designer.cs">
+      <DependentUpon>RegistrarAlmacen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegistarVentas.aspx.cs">
+      <DependentUpon>RegistarVentas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistarVentas.aspx.designer.cs">
+      <DependentUpon>RegistarVentas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegistrarBoleta.aspx.cs">
+      <DependentUpon>RegistrarBoleta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistrarBoleta.aspx.designer.cs">
+      <DependentUpon>RegistrarBoleta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegistrarClientes.aspx.cs">
+      <DependentUpon>RegistrarClientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistrarClientes.aspx.designer.cs">
+      <DependentUpon>RegistrarClientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegistrarCombo.aspx.cs">
+      <DependentUpon>RegistrarCombo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistrarCombo.aspx.designer.cs">
+      <DependentUpon>RegistrarCombo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegistrarComprobantes.aspx.cs">
+      <DependentUpon>RegistrarComprobantes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistrarComprobantes.aspx.designer.cs">
+      <DependentUpon>RegistrarComprobantes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegistrarCondicion.aspx.cs">
+      <DependentUpon>RegistrarCondicion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistrarCondicion.aspx.designer.cs">
+      <DependentUpon>RegistrarCondicion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegistrarCondicionesdePago.aspx.cs">
+      <DependentUpon>RegistrarCondicionesdePago.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistrarCondicionesdePago.aspx.designer.cs">
+      <DependentUpon>RegistrarCondicionesdePago.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegistrarConjunto.aspx.cs">
+      <DependentUpon>RegistrarConjunto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistrarConjunto.aspx.designer.cs">
+      <DependentUpon>RegistrarConjunto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegistrarCuentas.aspx.cs">
+      <DependentUpon>RegistrarCuentas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistrarCuentas.aspx.designer.cs">
+      <DependentUpon>RegistrarCuentas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegistrarEmpleado.aspx.cs">
+      <DependentUpon>RegistrarEmpleado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistrarEmpleado.aspx.designer.cs">
+      <DependentUpon>RegistrarEmpleado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegistrarFactura.aspx.cs">
+      <DependentUpon>RegistrarFactura.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistrarFactura.aspx.designer.cs">
+      <DependentUpon>RegistrarFactura.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegistrarLiquidacion.aspx.cs">
+      <DependentUpon>RegistrarLiquidacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistrarLiquidacion.aspx.designer.cs">
+      <DependentUpon>RegistrarLiquidacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegistrarMonto.aspx.cs">
+      <DependentUpon>RegistrarMonto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistrarMonto.aspx.designer.cs">
+      <DependentUpon>RegistrarMonto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegistrarNotaDeCredito.aspx.cs">
+      <DependentUpon>RegistrarNotaDeCredito.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistrarNotaDeCredito.aspx.designer.cs">
+      <DependentUpon>RegistrarNotaDeCredito.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegistrarNotaDeDebito.aspx.cs">
+      <DependentUpon>RegistrarNotaDeDebito.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistrarNotaDeDebito.aspx.designer.cs">
+      <DependentUpon>RegistrarNotaDeDebito.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegistrarOrdenCompra.aspx.cs">
+      <DependentUpon>RegistrarOrdenCompra.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistrarOrdenCompra.aspx.designer.cs">
+      <DependentUpon>RegistrarOrdenCompra.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegistrarPorcentaje.aspx.cs">
+      <DependentUpon>RegistrarPorcentaje.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistrarPorcentaje.aspx.designer.cs">
+      <DependentUpon>RegistrarPorcentaje.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegistrarPrenda.aspx.cs">
+      <DependentUpon>RegistrarPrenda.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistrarPrenda.aspx.designer.cs">
+      <DependentUpon>RegistrarPrenda.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegistrarProveedor.aspx.cs">
+      <DependentUpon>RegistrarProveedor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistrarProveedor.aspx.designer.cs">
+      <DependentUpon>RegistrarProveedor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegistrarVentaBoleta.aspx.cs">
+      <DependentUpon>RegistrarVentaBoleta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistrarVentaBoleta.aspx.designer.cs">
+      <DependentUpon>RegistrarVentaBoleta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegistrarVentaFactura.aspx.cs">
+      <DependentUpon>RegistrarVentaFactura.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistrarVentaFactura.aspx.designer.cs">
+      <DependentUpon>RegistrarVentaFactura.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegistroVentaResumenVenta.aspx.cs">
+      <DependentUpon>RegistroVentaResumenVenta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistroVentaResumenVenta.aspx.designer.cs">
+      <DependentUpon>RegistroVentaResumenVenta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SeleccionarPrendaAnnadirProducto.aspx.cs">
+      <DependentUpon>SeleccionarPrendaAnnadirProducto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SeleccionarPrendaAnnadirProducto.aspx.designer.cs">
+      <DependentUpon>SeleccionarPrendaAnnadirProducto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SeleccionarPrendaCombo.aspx.cs">
+      <DependentUpon>SeleccionarPrendaCombo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SeleccionarPrendaCombo.aspx.designer.cs">
+      <DependentUpon>SeleccionarPrendaCombo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SeleccionarPrendaConjunto.aspx.cs">
+      <DependentUpon>SeleccionarPrendaConjunto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SeleccionarPrendaConjunto.aspx.designer.cs">
+      <DependentUpon>SeleccionarPrendaConjunto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SeleccionarPrendaLiquidacion.aspx.cs">
+      <DependentUpon>SeleccionarPrendaLiquidacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SeleccionarPrendaLiquidacion.aspx.designer.cs">
+      <DependentUpon>SeleccionarPrendaLiquidacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SeleccionarPrendaMonto.aspx.cs">
+      <DependentUpon>SeleccionarPrendaMonto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SeleccionarPrendaMonto.aspx.designer.cs">
+      <DependentUpon>SeleccionarPrendaMonto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SeleccionarPrendaPorcentaje.aspx.cs">
+      <DependentUpon>SeleccionarPrendaPorcentaje.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SeleccionarPrendaPorcentaje.aspx.designer.cs">
+      <DependentUpon>SeleccionarPrendaPorcentaje.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VerCliente.aspx.cs">
+      <DependentUpon>VerCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VerCliente.aspx.designer.cs">
+      <DependentUpon>VerCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VerEmpleado.aspx.cs">
+      <DependentUpon>VerEmpleado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VerEmpleado.aspx.designer.cs">
+      <DependentUpon>VerEmpleado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VerItemsVenta.aspx.cs">
+      <DependentUpon>VerItemsVenta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VerItemsVenta.aspx.designer.cs">
+      <DependentUpon>VerItemsVenta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VerPrendaSeleccionadaparaVenta.aspx.cs">
+      <DependentUpon>VerPrendaSeleccionadaparaVenta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VerPrendaSeleccionadaparaVenta.aspx.designer.cs">
+      <DependentUpon>VerPrendaSeleccionadaparaVenta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VerVentaResumen.aspx.cs">
+      <DependentUpon>VerVentaResumen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VerVentaResumen.aspx.designer.cs">
+      <DependentUpon>VerVentaResumen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VisualizarPrenda.aspx.cs">
+      <DependentUpon>VisualizarPrenda.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VisualizarPrenda.aspx.designer.cs">
+      <DependentUpon>VisualizarPrenda.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WearDrop1.Master.cs">
+      <DependentUpon>WearDrop1.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WearDrop1.Master.designer.cs">
+      <DependentUpon>WearDrop1.Master</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.esm.min.js.map" />
+    <Content Include="Scripts\bootstrap.esm.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Content\bootstrap.rtl.min.css.map" />
+    <Content Include="Content\bootstrap.rtl.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Content\bootstrap-utilities.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.7.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.7.1.min.map" />
+    <Content Include="WearDrop1.Master" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Prendas\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\BlusaWS\" />
+    <WCFMetadataStorage Include="Connected Services\BoletaService\" />
+    <WCFMetadataStorage Include="Connected Services\CargoWS\" />
+    <WCFMetadataStorage Include="Connected Services\CasacaWS\" />
+    <WCFMetadataStorage Include="Connected Services\ClienteWS\" />
+    <WCFMetadataStorage Include="Connected Services\CuentaUsuarioWS\" />
+    <WCFMetadataStorage Include="Connected Services\DescuentoLiquidacionWS\" />
+    <WCFMetadataStorage Include="Connected Services\DescuentoMontoWS\" />
+    <WCFMetadataStorage Include="Connected Services\DescuentoPorcentajeWS\" />
+    <WCFMetadataStorage Include="Connected Services\EmpleadoWS\" />
+    <WCFMetadataStorage Include="Connected Services\FacturaService\" />
+    <WCFMetadataStorage Include="Connected Services\FaldaWS\" />
+    <WCFMetadataStorage Include="Connected Services\GorroWS\" />
+    <WCFMetadataStorage Include="Connected Services\NotaDeCreditoService\" />
+    <WCFMetadataStorage Include="Connected Services\NotaDeDebitoService\" />
+    <WCFMetadataStorage Include="Connected Services\PackageAlmacen\" />
+    <WCFMetadataStorage Include="Connected Services\PantalonWS\" />
+    <WCFMetadataStorage Include="Connected Services\PoloWS\" />
+    <WCFMetadataStorage Include="Connected Services\PromocionComboWS\" />
+    <WCFMetadataStorage Include="Connected Services\PromocionConjunto\" />
+    <WCFMetadataStorage Include="Connected Services\ProveedorWS\" />
+    <WCFMetadataStorage Include="Connected Services\TipoCuentaWS\" />
+    <WCFMetadataStorage Include="Connected Services\VentaWS\" />
+    <WCFMetadataStorage Include="Connected Services\VestidoWS\" />
+    <WCFMetadataStorage Include="Connected Services\VigenciaWS\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>52200</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:52104/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
