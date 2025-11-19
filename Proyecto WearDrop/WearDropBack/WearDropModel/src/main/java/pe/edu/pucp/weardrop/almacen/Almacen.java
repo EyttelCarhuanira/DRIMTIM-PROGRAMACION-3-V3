@@ -12,7 +12,6 @@ public class Almacen {
     private int id;
     private String nombre;
     private String ubicacion;
-    private int stock;
     private int idTienda;
     private boolean activo;
     
@@ -31,7 +30,6 @@ public class Almacen {
     public Almacen(String nombre, String ubicacion, int stock, int idTienda) {
         this.nombre = nombre;
         this.ubicacion = ubicacion;
-        this.stock = stock;
         this.idTienda = idTienda;
         this.activo=true;
         this.movimientos=new ArrayList<>();
@@ -41,7 +39,6 @@ public class Almacen {
     public Almacen(Almacen datAlmacen){
         this.id=datAlmacen.id;
         this.nombre=datAlmacen.nombre;
-        this.stock=datAlmacen.stock;
         this.ubicacion=datAlmacen.ubicacion;
         this.activo=datAlmacen.activo;
         this.idTienda=datAlmacen.idTienda;
@@ -55,7 +52,6 @@ public class Almacen {
         System.out.println("Nombre: "+this.nombre);
         System.out.println("Ubicacion: "+this.ubicacion);
         System.out.println("Activo: "+this.activo);
-        System.out.println("Stock: "+this.stock);
         System.out.println("idTienda: "+this.idTienda);
         //Faltarían movimientos y lotes...
         for (MovimientoAlmacen datMov: this.movimientos){
@@ -107,14 +103,4 @@ public class Almacen {
     public void setUbicacion(String ubicacion) {
         this.ubicacion = ubicacion;
     }
-
-    public int getStock() {
-        return stock;
-    }
-
-    public void setStock(int stock) {
-        this.stock = stock;
-    }
-    
-    
 }

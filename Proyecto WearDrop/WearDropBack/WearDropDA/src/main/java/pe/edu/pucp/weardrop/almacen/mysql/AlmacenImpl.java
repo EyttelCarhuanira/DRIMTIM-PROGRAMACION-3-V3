@@ -4,10 +4,6 @@
  */
 package pe.edu.pucp.weardrop.almacen.mysql;
 
-import java.sql.CallableStatement;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Types;
@@ -48,8 +44,7 @@ public class AlmacenImpl implements AlmacenDAO {
         parametrosSalida.put(1, Types.INTEGER);
         parametrosEntrada.put(2, datAlmacen.getNombre());
         parametrosEntrada.put(3, datAlmacen.getUbicacion());
-        parametrosEntrada.put(4, datAlmacen.getStock());
-        parametrosEntrada.put(5, datAlmacen.getIdTienda());
+        parametrosEntrada.put(4, datAlmacen.getIdTienda());
         
         DBManager.getInstance().ejecutarProcedimiento("insertar_almacen", parametrosEntrada, parametrosSalida);
         
@@ -69,9 +64,8 @@ public class AlmacenImpl implements AlmacenDAO {
         parametrosEntrada.put(1, datAlmacen.getId());
         parametrosEntrada.put(2, datAlmacen.getNombre());
         parametrosEntrada.put(3, datAlmacen.getUbicacion());
-        parametrosEntrada.put(4, datAlmacen.getStock());
-        parametrosEntrada.put(5, datAlmacen.isActivo());
-        parametrosEntrada.put(6, datAlmacen.getIdTienda());
+        parametrosEntrada.put(4, datAlmacen.isActivo());
+        parametrosEntrada.put(5, datAlmacen.getIdTienda());
         
         int resultado=DBManager.getInstance().ejecutarProcedimiento("modificar_almacen", parametrosEntrada, null);
         if(resultado>0) System.out.println("Se ha modificado el almacen.");
@@ -111,7 +105,6 @@ public class AlmacenImpl implements AlmacenDAO {
                 datAlmacen.setId(rs.getInt("idAlmacen"));
                 datAlmacen.setNombre(rs.getString("nombre"));
                 datAlmacen.setUbicacion(rs.getString("ubicacion"));
-                datAlmacen.setStock(rs.getInt("stock"));
                 datAlmacen.setIdTienda(rs.getInt("Tienda_idTienda"));
                 datAlmacen.setActivo(rs.getBoolean("activo"));
                 
@@ -142,7 +135,6 @@ public class AlmacenImpl implements AlmacenDAO {
                 datAlmacen.setId(rs.getInt("idAlmacen"));
                 datAlmacen.setNombre(rs.getString("nombre"));
                 datAlmacen.setUbicacion(rs.getString("ubicacion"));
-                datAlmacen.setStock(rs.getInt("stock"));
                 datAlmacen.setIdTienda(rs.getInt("Tienda_idTienda"));
                 datAlmacen.setActivo(rs.getBoolean("activo"));
                 
@@ -172,7 +164,6 @@ public class AlmacenImpl implements AlmacenDAO {
                 datAlmacen.setId(rs.getInt("idAlmacen"));
                 datAlmacen.setNombre(rs.getString("nombre"));
                 datAlmacen.setUbicacion(rs.getString("ubicacion"));
-                datAlmacen.setStock(rs.getInt("stock"));
                 datAlmacen.setIdTienda(rs.getInt("Tienda_idTienda"));
                 datAlmacen.setActivo(rs.getBoolean("activo"));
                 

@@ -7,20 +7,17 @@ package pe.edu.pucp.weardrop.services.descuentos;
 import jakarta.jws.WebService;
 import jakarta.jws.WebMethod;
 import jakarta.jws.WebParam;
-import java.util.ArrayList;
 import java.util.List;
-import pe.edu.pucp.weardrop.clasificacionropa.Vigencia;
 
 import pe.edu.pucp.weardrop.descuento.boi.DescuentoLiquidacionBOI;
 import pe.edu.pucp.weardrop.descuento.bo.DescuentoLiquidacionBOImpl;
-import pe.edu.pucp.weardrop.prendas.Prenda;
 import pe.edu.pucp.weardrop.promocionesdescuentos.DescuentoLiquidacion;
 
 /**
  *
  * @author leona
  */
-@WebService(serviceName = "DescuentoLiquidacionWS")
+@WebService(serviceName = "DescuentoLiquidacion")
 public class DescuentoLiquidacionWS {
     private final DescuentoLiquidacionBOI boDesc=new DescuentoLiquidacionBOImpl();
     /**
@@ -40,8 +37,8 @@ public class DescuentoLiquidacionWS {
         }
         return listaDesc;
     }
-     @WebMethod(operationName = "mostrar_descuentosActivos")
-    public List<DescuentoLiquidacion> mostrar_descuentosActivos(){
+    @WebMethod(operationName = "mostrar_descuentosliquidacionactivos")
+    public List<DescuentoLiquidacion> mostrar_descuentosliquidacionactivos(){
         List<DescuentoLiquidacion> listaDesc=null;
         try{
             listaDesc=boDesc.listarActivos();
@@ -50,20 +47,10 @@ public class DescuentoLiquidacionWS {
         }
         return listaDesc;
     }
-     @WebMethod(operationName = "insertar_prendadescuento")
-    public int insertar_prendadescuento(@WebParam(name="datDesc") DescuentoLiquidacion datDesc,@WebParam(name="prendas") ArrayList<Prenda> prendas, @WebParam(name="vig") Vigencia vig){
-        
-        int resultado=0;
-        try{
-            resultado=boDesc.insertar_PrendaDescuento(datDesc, prendas, vig);
-        } catch(Exception ex){
-            System.out.println(ex.getMessage());
-        }
-        return resultado;
-    }
+    
    
-    @WebMethod(operationName = "insertarDescuento")
-    public int insertarDescuento(@WebParam(name="datDesc") DescuentoLiquidacion datDesc){
+    @WebMethod(operationName = "insertarDescuentoLiquidacion")
+    public int insertarDescuentoLiquidacion(@WebParam(name="datDesc") DescuentoLiquidacion datDesc){
         int resultado=0;
         try{
             resultado=boDesc.insertar(datDesc);
@@ -97,8 +84,8 @@ public class DescuentoLiquidacionWS {
     }
     
     //Para Obtener Por ID
-    @WebMethod(operationName = "obtenerPorId")
-    public DescuentoLiquidacion obtenerPorId(@WebParam(name="idDesc") int idDesc){
+    @WebMethod(operationName = "obtenerXIdLiquidacion")
+    public DescuentoLiquidacion obtenerXIdLiquidacion(@WebParam(name="idDesc") int idDesc){
         DescuentoLiquidacion datProm=null;
         try{
             datProm=boDesc.obtenerXId(idDesc);

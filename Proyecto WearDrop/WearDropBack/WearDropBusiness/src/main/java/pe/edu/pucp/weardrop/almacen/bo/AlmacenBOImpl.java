@@ -58,13 +58,6 @@ public class AlmacenBOImpl implements AlmacenBOI{
     
     @Override
     public void validar(Almacen datAlmacen) throws Exception{
-        Integer stock=datAlmacen.getStock();
-        //Esto permite decidir si existe un valor asignado en la clase ya que en la BD no debe ser null
-        if(stock==null)
-            throw new Exception("En Almacen: El campo de Stock esta vacio."); 
-        if(datAlmacen.getStock()<0)
-            throw new Exception("En Almacen: El stock debe ser un número positivo.");
-        
         //En nuestro contexto si la Tienda no es la primer asignada (Ya que no hay más tiendas) Entonces salta error.
         if(datAlmacen.getIdTienda()!=1)
             throw new Exception("En Almacen: El campo de idTienda debe ser 1.");

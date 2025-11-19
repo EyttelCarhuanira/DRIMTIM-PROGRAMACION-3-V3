@@ -7,14 +7,10 @@ package pe.edu.pucp.weardrop.services.promociones;
 import jakarta.jws.WebService;
 import jakarta.jws.WebMethod;
 import jakarta.jws.WebParam;
-import java.util.ArrayList;
 import java.util.List;
-import pe.edu.pucp.weardrop.clasificacionropa.Vigencia;
-import pe.edu.pucp.weardrop.prendas.Prenda;
 import pe.edu.pucp.weardrop.promocionesdescuentos.PromocionConjunto;
 import pe.edu.pucp.weardrop.promocion.bo.PromocionConjuntoBOImpl;
 import pe.edu.pucp.weardrop.promocion.boi.PromocionConjuntoBOI;
-import pe.edu.pucp.weardrop.promocionesdescuentos.PromocionCombo;
 /**
  *
  * @author leona
@@ -29,6 +25,7 @@ public class PromocionConjuntoWS {
     public String hello(@WebParam(name = "name") String txt) {
         return "Hello " + txt + " !";
     }
+    
     @WebMethod(operationName = "mostrar_promocionesconjunto")
     public List<PromocionConjunto> mostrar_promocionesconjunto(){
         List<PromocionConjunto> listaProm=null;
@@ -39,8 +36,9 @@ public class PromocionConjuntoWS {
         }
         return listaProm;
     }
-@WebMethod(operationName = "mostrar_promocionesActivas")
-    public List<PromocionConjunto> mostrar_promocionesActivas(){
+    
+     @WebMethod(operationName = "mostrar_promocionesconjuntoactivos")
+    public List<PromocionConjunto> mostrar_promocionesconjuntoactivos(){
         List<PromocionConjunto> listaProm=null;
         try{
             listaProm=boProm.listarActivos();
@@ -50,17 +48,7 @@ public class PromocionConjuntoWS {
         return listaProm;
     }
     
-    @WebMethod(operationName = "insertar_prendapromocion")
-    public int insertar_prendapromocion(@WebParam(name="datDesc") PromocionConjunto datProm,@WebParam(name="prendas") ArrayList<Prenda> prendas, @WebParam(name="vig") Vigencia vig){
-        
-        int resultado=0;
-        try{
-            resultado=boProm.insertar_PrendaYConjunto(datProm, prendas, vig);
-        } catch(Exception ex){
-            System.out.println(ex.getMessage());
-        }
-        return resultado;
-    }
+   
     @WebMethod(operationName = "insertarPromocion")
     public int insertarPromocion(@WebParam(name="datProm") PromocionConjunto datProm){
         int resultado=0;
@@ -96,8 +84,8 @@ public class PromocionConjuntoWS {
     }
     
     //Para Obtener Por ID
-    @WebMethod(operationName = "obtenerPorId")
-    public PromocionConjunto obtenerPorId(@WebParam(name="idProm") int idProm){
+    @WebMethod(operationName = "obtenerPorIdConjunto")
+    public PromocionConjunto obtenerPorIdConjunto(@WebParam(name="idProm") int idProm){
         PromocionConjunto datProm=null;
         try{
             datProm=boProm.obtenerXId(idProm);

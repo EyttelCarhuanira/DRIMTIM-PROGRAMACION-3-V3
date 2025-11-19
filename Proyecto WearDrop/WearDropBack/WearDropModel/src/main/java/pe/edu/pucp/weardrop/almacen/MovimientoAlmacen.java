@@ -6,6 +6,7 @@ package pe.edu.pucp.weardrop.almacen;
 
 import java.util.ArrayList;
 import java.util.Date;
+import pe.edu.pucp.weardrop.personal.CuentaUsuario;
 
 /**
  *
@@ -20,6 +21,17 @@ public class MovimientoAlmacen {
     private String lugarOrigen;
     private TipoMovimiento tipo;
     private boolean activo; //Si se esta tomando en cuenta para la empresa, o si fue cancelada
+    
+    public CuentaUsuario getDatUsuario() {
+        return datUsuario;
+    }
+
+    //Para marcar que usuario ha creado el movimiento
+    public void setDatUsuario(CuentaUsuario datUsuario) {
+        this.datUsuario = datUsuario;
+    }
+    private CuentaUsuario datUsuario;
+    
     
     //Relaciones
     private final ArrayList<Lote>lotesMovidos;

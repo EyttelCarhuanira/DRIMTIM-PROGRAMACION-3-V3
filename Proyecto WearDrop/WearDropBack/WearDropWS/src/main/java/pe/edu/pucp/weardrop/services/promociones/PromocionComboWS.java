@@ -9,18 +9,15 @@ import jakarta.jws.WebMethod;
 import jakarta.jws.WebParam;
 import java.util.ArrayList;
 import java.util.List;
-import pe.edu.pucp.weardrop.clasificacionropa.Vigencia;
-import pe.edu.pucp.weardrop.prendas.Prenda;
 import pe.edu.pucp.weardrop.promocion.bo.PromocionComboBOImpl;
 import pe.edu.pucp.weardrop.promocion.boi.PromocionComboBOI;
-import pe.edu.pucp.weardrop.promocionesdescuentos.DescuentoLiquidacion;
 import pe.edu.pucp.weardrop.promocionesdescuentos.PromocionCombo;
 
 /**
  *
  * @author leona
  */
-@WebService(serviceName = "PromocionComboWS")
+@WebService(serviceName = "PromocionCombo")
 public class PromocionComboWS {
     private final PromocionComboBOI boProm=new PromocionComboBOImpl();
     /**
@@ -30,7 +27,6 @@ public class PromocionComboWS {
     public String hello(@WebParam(name = "name") String txt) {
         return "Hello " + txt + " !";
     }
-    
     //Util para las grillas
     @WebMethod(operationName = "mostrar_promocionescombo")
     public List<PromocionCombo> mostrar_promocionescombo(){
@@ -42,31 +38,22 @@ public class PromocionComboWS {
         }
         return listaAlmacen;
     }
-       @WebMethod(operationName = "mostrar_promocionesActivas")
-    public List<PromocionCombo> mostrar_promocionesActivas(){
-        List<PromocionCombo> listaProm=null;
+    
+     //Util para las grillas
+    @WebMethod(operationName = "mostrar_promocionescomboactivo")
+    public List<PromocionCombo> mostrar_promocionescomboactivo(){
+        List<PromocionCombo> listaAlmacen=null;
         try{
-            listaProm=boProm.listarActivos();
+            listaAlmacen=boProm.listarActivos();
         } catch(Exception ex){
             System.out.println(ex.getMessage());
         }
-        return listaProm;
+        return listaAlmacen;
     }
     
-     @WebMethod(operationName = "insertar_prendapromocion")
-    public int insertar_prendapromocion(@WebParam(name="datDesc") PromocionCombo datProm,@WebParam(name="prendas") ArrayList<Prenda> prendas, @WebParam(name="vig") Vigencia vig){
-        
-        int resultado=0;
-        try{
-            resultado=boProm.insertar_PrendaYCombo(datProm, prendas, vig);
-        } catch(Exception ex){
-            System.out.println(ex.getMessage());
-        }
-        return resultado;
-    }
     //Para Registrar un Almacen
-    @WebMethod(operationName = "insertarPromocion")
-    public int insertarPromocion(@WebParam(name="datProm") PromocionCombo datProm){
+    @WebMethod(operationName = "insertarPromocionCombo")
+    public int insertarPromocionCombo(@WebParam(name="datProm") PromocionCombo datProm){
         int resultado=0;
         try{
             resultado=boProm.insertar(datProm);
@@ -100,16 +87,14 @@ public class PromocionComboWS {
     }
     
     //Para Obtener Por ID
-    @WebMethod(operationName = "obtenerPorId")
-    public PromocionCombo obtenerPorId(@WebParam(name="idProm") int idProm){
+    @WebMethod(operationName = "obtenerPorIdCombo")
+    public PromocionCombo obtenerPorIdCombo(@WebParam(name="idProm") int idProm){
         PromocionCombo datProm=null;
         try{
             datProm=boProm.obtenerXId(idProm);
         } catch(Exception ex){
             System.out.println(ex.getMessage());
-            
         }
-        
         return datProm;
     }
 }

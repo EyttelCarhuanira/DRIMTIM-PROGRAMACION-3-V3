@@ -8,18 +8,16 @@ import jakarta.jws.WebService;
 import jakarta.jws.WebMethod;
 import jakarta.jws.WebParam;
 import java.util.List;
+import pe.edu.pucp.weardrop.vigencia.dao.VigenciaDAO;
+import pe.edu.pucp.weardrop.vigencia.mysql.VigenciaImpl;
 import pe.edu.pucp.weardrop.clasificacionropa.Vigencia;
-import pe.edu.pucp.weardrop.vigencia.bo.VigenciaBO;
-import pe.edu.pucp.weardrop.vigencia.boi.VigenciaBOI;
-
 /**
  *
  * @author leona
  */
 @WebService(serviceName = "VigenciaWS")
 public class VigenciaWS {
-    private final VigenciaBO boVig=new VigenciaBOI();
-
+    private final VigenciaDAO boProm=new VigenciaImpl();
     /**
      * This is a sample web service operation
      */
@@ -27,41 +25,48 @@ public class VigenciaWS {
     public String hello(@WebParam(name = "name") String txt) {
         return "Hello " + txt + " !";
     }
-     @WebMethod(operationName = "mosrtra_vigencias")
-    public List<Vigencia> mosrtra_vigencias(){
-        List<Vigencia> listaVig=null;
+    //Util para las grillas
+    @WebMethod(operationName = "mostrar_vigencia")
+    public List<Vigencia> mostrar_vigencia(){
+        List<Vigencia> listaAlmacen=null;
         try{
-            listaVig=boVig.listarTodos();
+            listaAlmacen=boProm.listarTodos();
         } catch(Exception ex){
             System.out.println(ex.getMessage());
         }
-        return listaVig;
+        return listaAlmacen;
     }
-     @WebMethod(operationName = "mostrar_vigenciasActivas")
+    
+     //Util para las grillas
+    @WebMethod(operationName = "mostrar_vigenciasActivas")
     public List<Vigencia> mostrar_vigenciasActivas(){
-        List<Vigencia> listaDesc=null;
+        List<Vigencia> listaAlmacen=null;
         try{
-            listaDesc=boVig.listarActivos();
+            listaAlmacen=boProm.listarActivos();
         } catch(Exception ex){
             System.out.println(ex.getMessage());
         }
-        return listaDesc;
+        return listaAlmacen;
     }
-     @WebMethod(operationName = "insertarVigencia")
-    public int insertarVigencia(@WebParam(name="datDesc") Vigencia datDesc){
+    
+    //Para Registrar un Almacen
+    @WebMethod(operationName = "insertarVigencia")
+    public int insertarVigencia(@WebParam(name="datProm") Vigencia datProm){
         int resultado=0;
         try{
-            resultado=boVig.insertar(datDesc);
+            resultado=boProm.insertar(datProm);
         } catch(Exception ex){
             System.out.println(ex.getMessage());
         }
         return resultado;
     }
+    
+    //Para modificar Almacen
     @WebMethod(operationName = "modificarVigencia")
-    public int modificarVigencia(@WebParam(name="datDesc") Vigencia datDesc){
+    public int modificarVigencia(@WebParam(name="datProm") Vigencia datProm){
         int resultado=0;
         try{
-            resultado=boVig.modificar(datDesc);
+            resultado=boProm.modificar(datProm);
         } catch(Exception ex){
             System.out.println(ex.getMessage());
         }
@@ -69,24 +74,25 @@ public class VigenciaWS {
     }
     
     @WebMethod(operationName = "eliminarVigencia")
-    public int eliminarVigencia(@WebParam(name="idDesc") int idDesc){
+    public int eliminarVigencia(@WebParam(name="idProm") int idProm){
         int resultado=0;
         try{
-            resultado=boVig.eliminar(idDesc);
+            resultado=boProm.eliminar(idProm);
         } catch(Exception ex){
             System.out.println(ex.getMessage());
         }
         return resultado;
     }
-     @WebMethod(operationName = "obtenerPorId")
-    public Vigencia obtenerPorId(@WebParam(name="idDesc") int idDesc){
+    
+    //Para Obtener Por ID
+    @WebMethod(operationName = "obtenerVigenciaPorId")
+    public Vigencia obtenerVigenciaPorId(@WebParam(name="idProm") int idProm){
         Vigencia datProm=null;
         try{
-            datProm=boVig.obtenerXId(idDesc);
+            datProm=boProm.obtenerPorId(idProm);
         } catch(Exception ex){
             System.out.println(ex.getMessage());
         }
         return datProm;
     }
-    
 }
