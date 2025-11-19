@@ -7,7 +7,7 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace WearDropWA
+namespace SoftProgWA
 {
 
 
